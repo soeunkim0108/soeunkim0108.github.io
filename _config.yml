@@ -61,3 +61,8 @@ plugins:
   - jekyll-feed
   - jekyll-readme-index
   - jemoji
+
+comment:
+  provider:          "disqus"
+  disqus:
+    shortname:       "soeunkim0108"
