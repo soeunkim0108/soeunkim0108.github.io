@@ -1,10 +1,10 @@
 ---
 layout: home
-title: Jekyll Gitbook Theme
+title: Soeun's Blog
 permalink: /
 ---
 
-Make Jelly site have a GitBook look!
+Hello, this is Soeun's Blog.
 
 ## Demo
 
