@@ -20,7 +20,7 @@ comments: true
 
 <br>
 
-### Git의 장점
+### Git 장점
 
 - 병렬 개발 가능.
 - 소스코드의 수정 내용은 커밋이라는 단위로 관리, 패치라는 형식으로 배포 
@@ -148,7 +148,7 @@ git checkout -- [파일 명]
 ### Github 사용법
 
 1. Github 계정 등록
-→ [github](https://github.com/)  
+→ [github.com](https://github.com/)  
 
 2. Github 저장소 생성
 ![github repository 생성](/assets/gitbook/images/github-repository.png)  
