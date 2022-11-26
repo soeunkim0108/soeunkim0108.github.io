@@ -4,26 +4,87 @@ title: "Jekyll"
 categories: jekyll update
 comments: true
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-Jekyll requires blog post files to be named according to the following format:
+> 심플한 **정적 웹페이지 생성기**로 Github의 공동설립자가 Ruby로 만든 것.
 
-`YEAR-MONTH-DAY-title.MARKUP`
+<br>
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+##### \# 정적 웹이란?
 
-Jekyll also offers powerful support for code snippets:
+> HTML 등으로 작성된 문서를 그대로 전달해주는 것.
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+- 요청에 따라 미리 저장된 페이지를 응답.
+- 웹 서버가 필요하지 않으므로 서버의 영향이 적다.
+- Back-end 코드가 없어 제작이 간편.
+- 속도가 빠르고 가볍다.
+- 복잡한 로직이 필요없는 소규모 사이트(블로그 등)에 적합.
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+<br>
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+### Jekyll 디렉토리 구조
+
+| _config.yml | 환경설정 정보를 보관. |
+| _drafts | 초안이란 아직 게시하지 않은 포스트. |
+| _includes | 재사용하기 위한 파일을 담는 디렉토리로, 포스트나 레이아웃 쉽게 삽입 가능. |
+| _layouts | 포스트 포장, 레이아웃 선택을 위한 파일들을 담는 디렉토리. |
+| _posts | 포스트, 즉 블로그 장의 컨텐츠. 파일 이름은 반드시 **YY-MM-DD-title.md** 형식을 따라야 한다.|
+| _data | 사이트에 사용할 데이터를 적절한 포맷으로 정리하여 보관하는 디렉토리. |
+| -sass | mail.scss에 import 할 수 있는 Sass 조각으로 하나의 스타일시트 파일인 main.css로 가공되어 사이트에서 사용하는 스타일들을 정의.|
+| _site | Jekyll의 변환 작업을 마친 파일들이 들어가는 default 디렉토리. |
+| .jekyll-metadata | Jekyll이 이 파일을 참고하여 마지막 빌드 후 한번도 수정되지 않은 파일이 무엇인지, 다음 빌드 때 어떤 파일을 다시 생성해야 하는지 판단. |
+| index.html 또는 index.md | Jekyll은 머리말 섹션을 모
+
+<br>
+
+### Jekyll 매커니즘
+
+- 파일 기반의 데이터를 정적인 리소스로 빌드해서 서비스.  
+  -- 게시글마다 md 파일이나 html 파일을 생성한다.  
+  -- 글을 작성하고 배포하기 위한 빌드를 jekyll에서 진행하면 응답할 html 화면을 만들고 파일로 저장해서 준비한다.  
+  -- 유저가 특정 화면을 요청하면 미리 생성한 html 파일을 찾아 꺼내준다.  
+  -- DB를 조회하고 HTML 양식으로 응답하는 과정과 같다.
+
+- 모든 화면을 미리 만듦.  
+  -- 유저가 요청할 수 있는 모든 화면을 미리 빌드해 두는 방식을 상용.  
+  -- 따라서 글이 많을 수록 길어지는 글 목록 화면이 많아지고 미리 만들어야하는 페이지 수도 많아진다.
+
+- 검색 기능.  
+  -- 클라이언트 스크립트를 사용해서 작성된 모든 글의 제목과 내용에 키워드를 조회한다.  
+  -- 최상위 경로에 검색에 필요한 정보인 search.json을 생성하고 자바스크립트를 이용해 검색한다.
+
+<br>
+
+### Jekyll 사용법
+
+1. Ruby 설치 여부 확인
+```cmd
+ruby -v
+```
+1-1. Ruby가 설치되지 않은 경우, 최신 버전의 Ruby 설치    
+→ [Ruby 설치 페이지](https://jekyllrb-ko.github.io/docs/installation/)
+
+2. Jekyll 설치
+```cmd
+gem install jekyll bundler
+```
+
+3. Jekyll 설치 여부 확인
+```cmd
+jekyll -v
+```
+
+4. Jekyll 시작하기
+현재 디렉토리(.)에 Jekyll 사이트 생성
+```cmd
+jekyll new . --force
+```
+
+5. ls 명령어를 통해 사이트 생성 후 생긴 파일들 확인
+```cmd
+ls
+```
+
+6. Jekyll 서버 실행 후 , localhost:4000 접속
+```cmd
+bundle exec jekyll serve
+```
