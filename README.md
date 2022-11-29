@@ -34,7 +34,7 @@
 
 1. `google analytics` 설정 및 코드 추가
 
-※ 자세한 내용은 본문에 있음
+※ 자세한 내용은 블로그 본문에 있음
 
 ## favicon 추가
 1. favicon.ico 파일 /assets/gitbook/images에 추가
