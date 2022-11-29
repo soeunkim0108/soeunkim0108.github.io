@@ -29,3 +29,9 @@
 2. `_config.yml` 파일에 `disqus 설정 추가`
 3. `_layouts/post.html`에 disqus 홈페이지 내에 있는 `Universal Code` 복사하여 `추가 및 수정` 진행
 4. 댓글을 허용하고 싶은 파일들에 `comments: true` 설정
+
+## Google Analytics 구현
+
+1. `google analytics` 설정 및 코드 추가
+
+※ 자세한 내용은 본문에 있음
